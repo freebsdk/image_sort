@@ -35,13 +35,10 @@ type ArgsManager () =
     let getArgValue (argv : string[]) (argIdx : int) =
         let arg = argv.[argIdx]
         if arg.StartsWith("\"") then
-            // strip double qoutes
+            // strip double quotes
             arg.Substring(1, arg.Length-2)
         else
-            if arg.StartsWith("--") then
-                failwith "Cannot found argument value for the key"
-            else
-                arg
+            arg
                 
     
     
