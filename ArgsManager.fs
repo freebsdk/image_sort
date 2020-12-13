@@ -14,11 +14,6 @@ type ArgsManager () =
     
     
     
-    let getParseElem (arg : string) =
-        ArgsParserElem(ARGS_TYPE_REQUIRED, true, "--src") |> Some
-        
-    
-    
     
     let rec findArgIdx (argv : string[]) (key : string) (idx : int) =
         if idx >= argv.Length then
