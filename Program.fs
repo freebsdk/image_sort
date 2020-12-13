@@ -27,7 +27,7 @@ let GetAllFileList (basePath : string) =
     let fullPath = Path.GetFullPath(basePath)
     
     if fullPath |> File.Exists then
-        printfn "Directory not found."
+        printfn "Directory not found. (specified base path : %s)" basePath
     else
         let dirInfo = DirectoryInfo(fullPath)
         GetFileListInTheDirectory <| dirInfo <| fileList
@@ -50,7 +50,7 @@ let YearMonthDirName (date : DateTime) =
 
 
 // arguments > 0 src_dir, 1 dest_dir
-// --src /path/to/src --dest /path/to/dest  --rename "{YEAR}{MONTH}{DAY}{HOUR}{MINUTE}{SECOND}_{DEVICE}" --overwrite --test 
+// --src /path/to/src --dest /path/to/dest --destdirname "{YEAR}{MONTH}" --rename "{YEAR}{MONTH}{DAY}{HOUR}{MINUTE}{SECOND}_{DEVICE}" --overwrite --test 
 [<EntryPoint>]
 let main argv =
     let fileList = GetAllFileList <| argv.[0]
